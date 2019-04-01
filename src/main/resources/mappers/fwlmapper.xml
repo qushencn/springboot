@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.FwlMapper">
+
+
+    <resultMap type="fwl" id="fwlMap">
+
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="fwl" property="fwl" jdbcType="VARCHAR" />
+        <result column="time" property="time" jdbcType="VARCHAR" />
+    </resultMap>
+
+
+    <insert id="insertfwl" parameterType="fwl" >
+    
+
+  insert into csdnfwl(fwl, time) values(#{fwl}, #{time})
+  
+    </insert>
+
+   <select id="selectall"  resultType="com.example.demo.entity.fwl">
+       
+       select * from csdnfwl s ORDER BY ABS(NOW() - s.time) ASC limit 8
+    
+    </select>
+
+
+   <select id="selectbyid" parameterType="INTEGER" resultType="com.example.demo.entity.fwl">
+       
+       select * from csdnfwl  where 1=1 and id = #{id}
+    
+    </select>
+
+
+</mapper>
