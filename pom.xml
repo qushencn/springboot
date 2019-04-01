@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>springbootmybatis</artifactId>
@@ -29,45 +29,49 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-		<dependency>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-starter-thymeleaf</artifactId>
-</dependency>
-		
-		
-		
-		
-		
-		
-		
-		
-		<dependency>
-      <groupId>ch.qos.logback</groupId>
-     <artifactId>logback-classic</artifactId>
-   <version>1.2.3</version>
-     </dependency>
-       <dependency>
-   <groupId>ch.qos.logback</groupId>
-   <artifactId>logback-core</artifactId>
-   <version>RELEASE</version>
-         </dependency>
-         
-       <dependency>
-   <groupId>org.mybatis.spring.boot</groupId>
-   <artifactId>mybatis-spring-boot-starter</artifactId>
-   <version>1.3.0</version>
-         </dependency>
-		
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        
 
-        
-		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.10.3</version>
+		</dependency>
+
+
+
+
+
+
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+
+
 	</dependencies>
 
 	<build>

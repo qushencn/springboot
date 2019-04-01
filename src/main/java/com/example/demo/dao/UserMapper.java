@@ -11,7 +11,6 @@ import com.example.demo.entity.User;
  *
  */
 @Mapper
-
 public interface UserMapper {
   User selectUser(int id);
 	

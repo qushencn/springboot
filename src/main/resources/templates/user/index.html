@@ -4,7 +4,106 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+body {
+    padding:0;  /*去除内边距*/
+    border:0;   /*去除边框*/
+    margin:0;   /*去除外边距*/
+}
+</style>
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.js"></script>
 <body>
-   <p>Hello SpringBoot</p>
+
+   <div id="main" style="width: 1920px;height:1080px;" ></div>
+
 </body>
+   <script>
+   $(function () {
+	   
+	   // 基于准备好的dom，初始化echarts实例
+       var myChart = echarts.init(document.getElementById('main'));
+       // 指定图表的配置项和数据
+       var option = {
+
+           title: {
+           	 text: 'csdn访问量',
+           		 subtext: '单位：人次'
+           },
+           
+           tooltip:{
+        	   show:true 
+           },
+           toolbox: {
+               show : true,
+               feature : {
+                   mark : {show: false},
+                   dataView : {show: true, readOnly: false},
+                   magicType : {show: true, type: ['line', 'bar']},
+                   restore : {show: true},
+                   saveAsImage : {show: true}
+               }
+           },
+           
+           legend: {
+               data:['人次    ']
+           },
+           xAxis: {
+               data: []
+           },
+           yAxis: {},
+           series: [{
+               name: '人次',
+               type: 'line',
+               data:[]
+           }]
+       };
+       
+       // 使用刚指定的配置项和数据显示图表。
+       myChart.setOption(option);
+       
+       var taking=[];    //收入数组（实际用来盛放X轴坐标值）
+       var yearmonth=[];    //年月数组（实际用来盛放Y坐标值）
+       
+       $.ajax({
+           async : true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+           url : "/selecttime",    //请求发送到TestServlet处
+           dataType : "json",        //返回数据形式为json
+           success : function(result) {
+           
+               //请求成功时执行该函数内容，result即为服务器返回的json对象
+               if (result != null && result.length > 0) {
+                      for(var i=0;i<result.length;i++){       
+                   	   taking.push(result[i].fwl); //挨个取出收入并填入类别数组
+                   	  
+                       }
+                      for(var i=0;i<result.length;i++){       
+                          yearmonth.push(result[i].time);    //挨个取出年月并填入销量数组
+                        }
+                      myChart.hideLoading();    //隐藏加载动画
+                      myChart.setOption({        //加载数据图表
+                          xAxis: {
+                              data: yearmonth
+                          },
+                          series: [{
+                              // 根据名字对应到相应的系列
+                              name: '人次',
+                              data: taking
+                          }]
+                      });
+                      
+               }
+           
+          },
+           error : function(errorMsg) {
+               //请求失败时执行该函数
+           alert("图表请求数据失败!");
+           myChart.hideLoading();
+           }
+      })
+	   
+   });
+   
+   </script>
 </html>
