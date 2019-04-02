@@ -15,7 +15,6 @@ public interface FwlMapper {
 
 	 public User selectfwl(int id);
 	  
-	  
 	 public int insertfwl(fwl wl);
 	  
 	 public List<fwl> selectall();

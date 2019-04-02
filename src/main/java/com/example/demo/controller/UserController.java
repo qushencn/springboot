@@ -48,7 +48,7 @@ public class UserController {
 	@RequestMapping("/hello")
 	public String HelloSpringBoot() {
 		
-		System.out.println("测试Controller跳转前台页面");
+		System.out.println("从Controller跳转前台页面");
 		return "user/index";
 	}
 	
@@ -73,15 +73,15 @@ public class UserController {
 	@ResponseBody
 	public List<fwl> selecttime(){
 		
-		System.out.println("进入了");
+		System.out.println("进入了查询csdn访问量");
 
+		System.out.println("查询到的数据是:"+fwlmapper.selectall().get(2).getTime());
+		
 		return fwlmapper.selectall();
 	}
 	
 
 
-	
-	
 	public static String getTime() {
 		Date date=new Date();
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
