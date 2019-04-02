@@ -20,8 +20,7 @@
 
    <select id="selectall"  resultType="com.example.demo.entity.fwl">
        
-        select  *  from (select   *   from   csdnfwl   order   by   time desc    limit    8) u  order   by   time asc
-
+       select * from csdnfwl s ORDER BY ABS(NOW() - s.time) ASC limit 8
     
     </select>
 
