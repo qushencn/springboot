@@ -13,12 +13,7 @@
     </resultMap>
 
 
-    <select id="selectUser" parameterType="INTEGER" resultMap="UserMap">
-        select *
-        from user
-        where 1=1
-        and id = #{id,jdbcType=INTEGER}
-    </select>
+ 
 
 
 
