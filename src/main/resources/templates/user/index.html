@@ -16,7 +16,7 @@ body {
 <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.js"></script>
 <body>
 
-   <div id="main" style="width: 1920px;height:1080px;" ></div>
+   <div id="main" style="width: 1920px;height:800px;" ></div>
 
 </body>
    <script>
@@ -52,7 +52,9 @@ body {
            xAxis: {
                data: []
            },
-           yAxis: {},
+           yAxis: {
+        	   scale:true // 最小值
+          },
            series: [{
                name: '人次',
                type: 'line',
@@ -84,7 +86,9 @@ body {
                       myChart.hideLoading();    //隐藏加载动画
                       myChart.setOption({        //加载数据图表
                           xAxis: {
-                              data: yearmonth
+                              data: yearmonth,
+                            
+
                           },
                           series: [{
                               // 根据名字对应到相应的系列
