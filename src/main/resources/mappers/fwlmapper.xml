@@ -20,7 +20,7 @@
 
    <select id="selectall"  resultType="com.example.demo.entity.fwl">
        
-       select  *  from (select   *   from   csdnfwl   order   by   time desc    limit    8) u  order   by   time asc
+       select  id,fwl,LEFT(time,10) time   from (select   *   from   csdnfwl   order   by   time desc    limit    8) u  order   by   time asc
     
     </select>
 
