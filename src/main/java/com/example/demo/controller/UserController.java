@@ -54,8 +54,8 @@ public class UserController {
 	
 	@RequestMapping("/csdn")
 	@ResponseBody
-	@Scheduled(cron="0 0 0 1/1 * ? ")   //每5秒执行一次
-	public User selectcsdn() throws IOException {
+	@Scheduled(cron="0 0 12 * * ?")   //每天12点执行一次
+	public String selectcsdn() throws IOException {
 		
 		csdn csdn=new csdn();
 		int fwl=csdn.selectcsdn();
@@ -66,7 +66,7 @@ public class UserController {
 		System.out.println("显示时间是:"+getTime());
 		int a=fwlmapper.insertfwl(wl);
 		System.out.println("a："+a);
-		return usermapper.selectUser(1);
+		return "插入成功";
 	}
 	
 	@RequestMapping("/selecttime")
