@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
 	</head>
 	<body>
 		<h1>每天定时抓取CSDN博客访问数量，并保存在数据库，通过echarts展示出最近8天的访问趋势。</h1>
